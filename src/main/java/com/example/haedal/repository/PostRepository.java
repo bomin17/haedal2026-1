@@ -1,14 +1,15 @@
 package com.example.haedal.repository;
 
+
+import com.example.haedal.domain.Post;
 import com.example.haedal.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+import java.util.List;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-    Boolean existsByUsername(String username);
-    Optional<User> findByUsername(String username);
-
+public interface PostRepository extends JpaRepository<Post, Long> {
+    Long countByUser(User user);
+    List<Post> findByUser(User user);
 }
